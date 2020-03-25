@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Login from "../Login/login";
 
 class Layout extends Component {
     render() {
         return (
-            <div>
-
-            </div>
+            <BrowserRouter>
+                <Switch>
+                    <Route path="/" component={Login}></Route>
+                </Switch>
+            </BrowserRouter>
         );
     }
 }
