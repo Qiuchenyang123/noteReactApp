@@ -12,7 +12,7 @@ import {
     AutoComplete,
 } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-
+const { Option } = Select;
 class Register extends Component {
     constructor(props) {
         super(props);
@@ -21,12 +21,14 @@ class Register extends Component {
 
         }
     }
+
     formRef = React.createRef();
+
     onFinish = values => {
 
     };
     render() {
-        const { Option } = Select;
+
 
         const formItemLayout = {
             labelCol: {
@@ -61,17 +63,18 @@ class Register extends Component {
         );
 
         return (
-            <Form
-                {...formItemLayout}
-                form={this.formRef}
-                name="register"
-                onFinish={this.onFinish}
-                initialValues={{
-                    prefix: '86'
-                }}
-                scrollToFirstError
-            >
-                <Form.Item
+            <div>
+                <Form
+                    {...formItemLayout}
+                    ref={this.formRef}
+                    name="registerForm"
+                    onFinish={this.onFinish}
+                    initialValues={{
+                        prefix: '86'
+                    }}
+                    scrollToFirstError
+                >
+                     <Form.Item
                     name="email"
                     label="邮箱"
                     rules={[
@@ -88,7 +91,7 @@ class Register extends Component {
                     <Input />
                 </Form.Item>
 
-                <Form.Item
+                    <Form.Item
                     name="password"
                     label="密码"
                     rules={[
@@ -140,7 +143,7 @@ class Register extends Component {
                     <Input />
                 </Form.Item>
 
-                <Form.Item
+                    <Form.Item
                     name="phone"
                     label="手机号码"
                     rules={[{ required: true, message: 'Please input your phone number!' }]}
@@ -160,12 +163,13 @@ class Register extends Component {
                         I have read the <a href="">agreement</a>
                     </Checkbox>
                 </Form.Item>
-                <Form.Item {...tailFormItemLayout}>
+                     <Form.Item {...tailFormItemLayout}>
                     <Button type="primary" htmlType="submit">
                         注册
                     </Button>
                 </Form.Item>
-            </Form>
+                </Form>
+            </div>
         );
     }
 }

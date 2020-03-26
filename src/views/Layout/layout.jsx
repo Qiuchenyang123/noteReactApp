@@ -7,11 +7,8 @@ class Layout extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route path="/login" component={Login}></Route>
-                    <Route path="/register" render={() => {
-                        <Register />
-                        }}>
-                    </Route>
+                    <Route path="/login" component={Login} />
+                    <Route path="/register" component={Register} />
                 </Switch>
             </BrowserRouter>
         );
