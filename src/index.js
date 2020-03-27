@@ -7,6 +7,10 @@ import { createStore } from "redux";
 import appReducer from "./reducers";
 import 'antd/dist/antd.css'
 import './index.scss';
+import axios from 'axios';
+
+// 将 axios 挂载在 React 原型上
+React.Component.prototype.axios = axios;
 
 let store = createStore(appReducer);
 

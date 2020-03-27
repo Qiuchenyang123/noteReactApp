@@ -3,13 +3,9 @@ import {
     Form,
     Input,
     Tooltip,
-    Cascader,
     Select,
-    Row,
-    Col,
     Checkbox,
     Button,
-    AutoComplete,
 } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 const { Option } = Select;
@@ -18,26 +14,57 @@ class Register extends Component {
         super(props);
         this.state = {
             email: '',
-
+            password: '',
+            nickname: '',
+            phone: ''
         }
     }
 
     formRef = React.createRef();
 
     onFinish = values => {
-
+        console.log(values);
+    };
+    emailChange = e => {
+        const value = e.target.value;
+        this.setState({
+            email: value
+        })
+    };
+    passwordChange = e => {
+        const value = e.target.value;
+        this.setState({
+            password: value
+        })
+    };
+    nicknameChange = e => {
+        const value = e.target.value;
+        this.setState({
+            nickname: value
+        })
+    };
+    phoneChange = e => {
+        const value = e.target.value;
+        this.setState({
+            phone: value
+        })
+    };
+    onRegister = () => {
+        console.log(53, this.state);
+        console.log(54, this.axios)
+    };
+    onBackToLogin = () => {
+        this.props.history.push({ pathname: '/login' })
     };
     render() {
-
-
         const formItemLayout = {
             labelCol: {
                 xs: { span: 24 },
-                sm: { span: 8 },
+                sm: { span: 1, offset: 9 },
             },
             wrapperCol: {
                 xs: { span: 24 },
-                sm: { span: 16 },
+                sm: { span: 5 },
             },
         };
         const tailFormItemLayout = {
@@ -47,8 +74,8 @@ class Register extends Component {
                     offset: 0,
                 },
                 sm: {
-                    span: 16,
-                    offset: 8,
+                    span: 3,
+                    offset: 12,
                 },
             },
         };
@@ -63,7 +90,8 @@ class Register extends Component {
         );
 
         return (
-            <div>
+            <div className={`registerCtn`}>
+                <p className="registerTitle">用户注册</p>
                 <Form
                     {...formItemLayout}
                     ref={this.formRef}
@@ -88,22 +116,22 @@ class Register extends Component {
                         },
                     ]}
                 >
-                    <Input />
+                     <Input onChange={this.emailChange}/>
                 </Form.Item>
 
-                    <Form.Item
-                    name="password"
-                    label="密码"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input your password!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input.Password />
-                </Form.Item>
+                <Form.Item
+                name="password"
+                label="密码"
+                rules={[
+                    {
+                        required: true,
+                        message: 'Please input your password!',
+                    },
+                ]}
+                hasFeedback
+            >
+                <Input.Password onChange={this.passwordChange} />
+            </Form.Item>
 
                 <Form.Item
                     name="confirm"
@@ -140,7 +168,7 @@ class Register extends Component {
                     }
                     rules={[{ required: true, message: 'Please input your nickname!', whitespace: true }]}
                 >
-                    <Input />
+                    <Input onChange={this.nicknameChange}/>
                 </Form.Item>
 
                     <Form.Item
@@ -148,7 +176,7 @@ class Register extends Component {
                     label="手机号码"
                     rules={[{ required: true, message: 'Please input your phone number!' }]}
                 >
-                    <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+                    <Input addonBefore={prefixSelector} style={{ width: '100%' }} onChange={this.phoneChange} />
                 </Form.Item>
 
                 <Form.Item
@@ -158,15 +186,15 @@ class Register extends Component {
                         { validator:(_, value) => value ? Promise.resolve() : Promise.reject('Should accept agreement') },
                     ]}
                     {...tailFormItemLayout}
+                    style={{'textAlign': 'right'}}
                 >
                     <Checkbox>
                         I have read the <a href="">agreement</a>
                     </Checkbox>
                 </Form.Item>
-                     <Form.Item {...tailFormItemLayout}>
-                    <Button type="primary" htmlType="submit">
-                        注册
-                    </Button>
+                 <Form.Item {...tailFormItemLayout} style={{'textAlign': 'right'}}>
+                    <Button type="primary" htmlType="button" onClick={this.onRegister}>注册</Button>
+                    <Button className={`grayBtn`} type="primary" htmlType="button" onClick={this.onBackToLogin}>返回</Button>
                 </Form.Item>
                 </Form>
             </div>

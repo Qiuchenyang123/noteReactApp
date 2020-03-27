@@ -15,3 +15,28 @@ code {
 body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
 ol,ul,li{margin:0;padding:0;list-style:none;}
 img{border:none;}
+
+.grayBtn{
+  background-color: #e2e2e2;
+  border: 1px solid #e2e2e2;
+  color: #123;
+  &:hover{
+    background-color: #d8d8d8;
+    border: 1px solid #d8d8d8;
+    color: #123;
+  }
+  &:active{
+    background-color: #d8d8d8;
+    border: 1px solid #d8d8d8;
+    color: #123;
+  }
+}
+.registerCtn{
+  .registerTitle{
+    height: 66px;
+    color: #333;
+    font: 600 22px 'Microsoft YaHei UI';
+    line-height: 66px;
+    text-align: center;
+  }
+}
