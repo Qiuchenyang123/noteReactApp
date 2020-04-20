@@ -6,6 +6,7 @@ import {
     Select,
     Checkbox,
     Button,
+    message
 } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 const { Option } = Select;
@@ -50,8 +51,33 @@ class Register extends Component {
         })
     };
     onRegister = () => {
-        console.log(53, this.state);
-        console.log(54, this.axios)
+        this.axios.post(this.baseUrl + '/user/register', this.state)
+            .then(res => {
+                console.log(res);
+                res = res.data;
+                const self = this;
+                if (res.code === 1) {
+                    message.success({
+                        content: '注册成功, 即将后跳转到登录页',
+                        duration: 2,
+                        onClose() {
+                            self.props.history.push({ pathname: '/login' })
+                        }
+                    });
+                } else {
+                    message.error({
+                        content: '注册失败,' + res.errMsg,
+                        duration: 5,
+                    });
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                message.error({
+                    content: '注册失败,' + err.errMsg || err,
+                    duration: 5,
+                });
+            })
     };
     onBackToLogin = () => {
         this.props.history.push({ pathname: '/login' })
