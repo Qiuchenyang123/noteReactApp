@@ -12,6 +12,7 @@ import thunk from 'redux-thunk'
 
 // 将 axios 挂载在 React 原型上
 React.Component.prototype.axios = axios;
+React.Component.prototype.baseUrl = 'http://47.98.234.0:23333';
 
 let store = createStore(appReducer, {
     username: '',
