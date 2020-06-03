@@ -1,0 +1,69 @@
+.home-container{
+    display: flex;
+    width: 1280px;
+    margin: 80px auto;
+    .article-wrap{
+        width: 960px;
+    }
+    .side-panel-wrap{
+        margin-left: 20px;
+        width: 300px;
+        .search-panel-wrap{
+            box-sizing: border-box;
+            width: 100%;
+            background-color: #fff;
+            .search-panel-container{
+                .search-item{
+                    position: relative;
+                    width: 100%;
+                    height: 70px;
+                    padding: 16px;
+                    background-color: gray;
+                    >input{
+                        width: 100%;
+                        height: 100%;
+                        border: 1px solid #a0a0a0;
+                        border-radius: 19px;
+                        text-indent: 1em;
+                    }
+                    .btn-search{
+                        position: absolute;
+                        right: 26px;
+                        top: 50%;
+                        font-size: 22px;
+                        color: #989b9d;
+                        transform: translateY(-50%);
+                        &:hover{
+                            color: #acb0b2;
+                        }
+                    }
+                }
+                .search-options{
+                    padding: 20px 0;
+                    .search-options-list{
+                        position: relative;
+                        .search-slider{
+                            position: absolute;
+                            left: 0;
+                            width: 100%;
+                            height: 46px;
+                            background-color: rgba(200, 200, 200, 0.11);
+                            border-right: 6px solid #444647;
+                            transition: top .3s;
+                        }
+                        .search-options-item{
+                            padding: 12px 16px;
+                            color: #444647;
+                            border-bottom: 1px solid #eaeaea;
+                        }
+                    }
+                }
+            }
+        }
+        .popular-panel-wrap, .recommend-panel-wrap{
+            box-sizing: border-box;
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
+}

@@ -1,12 +1,25 @@
-const userReducer = (state = {}, action) => {
-    switch (action.type) {
-        case 'login':
-            return state;
-        case 'logout':
-            return state;
-        default:
-            return state
-    }
-};
+import {
+    ACTION_SET_USERNAME,
+    ACTION_SET_PASSWORD
+} from '../actions/userActions'
+export default {
+    username(state = '', action) {
+        const {type, payload} = action;
+        switch (type) {
+            case ACTION_SET_USERNAME:
+                return payload;
+            default:
+                return state
+        }
+    },
+    password(state = '', action) {
+        const {type, payload} = action;
+        switch (type) {
+            case ACTION_SET_PASSWORD:
+                return payload;
+            default:
+                return state
+        }
+    },
 
-export default userReducer
+}

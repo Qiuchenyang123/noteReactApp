@@ -1,0 +1,53 @@
+.normal-panel-container{
+    background-color: #fff;
+    padding-bottom: 20px;
+    .panel-title{
+        height: 54px;
+        margin: 0 20px;
+        border-bottom: 1px solid #e5e5e5;
+        line-height: 54px;
+        color: #444647;
+        font-size: 22px;
+    }
+    .panel-item-list{
+        .panel-item{
+            height: 46px;
+            padding: 0 16px;
+            line-height: 46px;
+            a{
+                color: #444647;
+                &:hover{
+                    color: #7de30f;
+                }
+            }
+            .panel-item-index{
+                display: inline-block;
+                width: 26px;
+                height: 26px;
+                margin-right: 10px;
+                background-color: #dadada;
+                text-align: center;
+                line-height: 26px;
+                border-radius: 50%;
+            }
+            &:nth-of-type(1) {
+                .panel-item-index{
+                    background-color: #ff5b17;
+                    color: #fff;
+                }
+            }
+            &:nth-of-type(2) {
+                .panel-item-index{
+                    background-color: #1b85ff;
+                    color: #fff;
+                }
+            }
+            &:nth-of-type(3) {
+                .panel-item-index{
+                    background-color: #25e30c;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

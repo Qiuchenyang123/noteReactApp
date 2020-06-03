@@ -46,7 +46,7 @@ class Login extends Component {
                             </div>
 
                             <div className="text-center p-t-12">
-                                <a className="txt2" href="javascript:">
+                                <a className="txt2" href="#">
                                     忘记密码？
                                 </a>
                             </div>
