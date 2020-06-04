@@ -1,4 +1,9 @@
 .registerCtn{
     height: 100vh;
     background-color: #fff;
+    .registerTitle{
+        padding: 20px 0;
+        text-align: center;
+        font: 600 22px 'Microsoft YaHei UI';
+    }
 }

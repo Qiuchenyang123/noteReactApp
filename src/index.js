@@ -7,17 +7,16 @@ import { createStore, applyMiddleware } from "redux";
 import appReducer from "./reducers";
 import 'antd/dist/antd.css'
 import './index.scss';
-import axios from 'axios';
+// import axios from 'axios';
 import thunk from 'redux-thunk'
 
 // 将 axios 挂载在 React 原型上
-React.Component.prototype.axios = axios;
-React.Component.prototype.baseUrl = 'http://47.98.234.0:23333';
+// React.Component.prototype.axios = axios;
+// React.Component.prototype.baseUrl = 'http://47.98.234.0:23333';
 
 let store = createStore(appReducer, {
     username: '',
     password: '',
-    verificationCodeSvg: ''
 }, applyMiddleware(thunk));
 
 ReactDOM.render(

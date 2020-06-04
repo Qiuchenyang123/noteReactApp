@@ -25,3 +25,8 @@ export function userLogin() {
 export function fetchVerificationSvg() {
     return axios.get('/user/verificationCode')
 }
+
+export function userRegister(params) {
+    console.log(30, params);
+    return axios.post('/user/register', params)
+}
