@@ -94,7 +94,11 @@ class Register extends Component {
                         _verificationCodeSvg: res.data.data.svg,
                     });
                     message.error(res.data.msg);
-
+                } else if (res.data.code === 1) {
+                    message.success(res.data.msg + ',2s后跳转到登录页。。。');
+                    setTimeout(() => {
+                        this.props.history.push({pathname: '/login'})
+                    }, 2000)
                 }
             })
             .catch(err => {
