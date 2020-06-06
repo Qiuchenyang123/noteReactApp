@@ -2,11 +2,10 @@ import Home from "../../views/Home/Home";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
-    console.log('HomeLayoutCtn', state);
     return {
         username: state.username,
-        password: state.password,
-        verificationCodeSvg: state.verificationCodeSvg
+        verificationCodeSvg: state.verificationCodeSvg,
+        articleList: state.articleList
     }
 };
 const mapDispatchToProps = (dispatch, ownProps) => {

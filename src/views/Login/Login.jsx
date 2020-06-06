@@ -4,6 +4,10 @@ import '../../assert/css/util.css'
 import '../../assert/css/main.css'
 import { message } from 'antd';
 import { UserOutlined, UnlockOutlined } from '@ant-design/icons';
+import {
+    userLogin,
+    setUserInfo
+} from "../../actions/userActions";
 
 class Login extends Component {
     constructor(props) {
@@ -11,57 +15,59 @@ class Login extends Component {
         this.state = {
             email: '',
             password: ''
-        }
+        };
+        console.log(19, 'login/,', props);
     }
 
     onUsernameChange = (e) => {
         this.setState({
             email: e.target.value
         })
-    }
+    };
 
     onPasswordChange = (e) => {
         this.setState({
             password: e.target.value
         })
-    }
+    };
 
     onLogin = () => {
-        const self = this;
         const params = {
-            email: self.state.email,
-            password: self.state.password
+            email: this.state.email,
+            password: this.state.password
         };
-        this.axios.post(this.baseUrl + '/user/login', params)
+        userLogin(params)
             .then(res => {
-                console.log(res);
+                console.log(40, res);
+                const {dispatch, history} = this.props;
                 res = res.data;
                 if (res.code === 1) {
                     message.success({
                         content: '登录成功',
                         duration: 1,
                         onClose() {
-
+                            dispatch(setUserInfo(res.data.userInfo));
+                            history.push({pathname: '/home'})
                         }
                     })
                 } else {
                     message.error({
-                        content: res.errMsg,
+                        content: res.msg,
                         duration: 5,
                     })
                 }
             })
             .catch(err => {
                 message.error({
-                    content: err.errMsg || err,
+                    content: err.msg || err,
                     duration: 5,
                 })
             })
-    }
+    };
 
     turnToRegister = () => {
         this.props.history.push({ pathname: '/register' })
-    }
+    };
 
     render() {
         return (

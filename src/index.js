@@ -15,8 +15,9 @@ import thunk from 'redux-thunk'
 // React.Component.prototype.baseUrl = 'http://47.98.234.0:23333';
 
 let store = createStore(appReducer, {
-    username: '',
-    password: '',
+    userInfo: {},
+    articleList: [],
+    articleInfo: {}
 }, applyMiddleware(thunk));
 
 ReactDOM.render(

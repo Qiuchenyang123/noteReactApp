@@ -5,6 +5,9 @@ import RecommendPanel from "./RecommendPanel";
 import ArticleItem from "../../component/ArticleItem/ArticleItem";
 import '../../assert/css/views/Home/home.scss'
 import {fetchVerificationSvg} from "../../actions/userActions";
+import {
+    fetchArticleList,
+} from "../../actions/articleActions";
 import VerificationSvg from "../../component/VerificationSvg/VerificationSvg";
 
 class Home extends Component {
@@ -27,14 +30,18 @@ class Home extends Component {
                 console.log(this.state)
             }).catch(err => {
             console.log(err);
-        })
+        });
+        this.props.dispatch(fetchArticleList())
     }
     render() {
+        const {articleList} = this.props;
         return (
             <div className="home-container">
                 <div className="article-wrap">
                     <ul className="article-list">
-                        <ArticleItem/>
+                        {articleList && articleList.map((article, index) => {
+                            return <ArticleItem article={article} key={index}/>
+                        })}
                     </ul>
                 </div>
                 <div className="side-panel-wrap">

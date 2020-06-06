@@ -1,25 +1,14 @@
 import {
-    ACTION_SET_USERNAME,
-    ACTION_SET_PASSWORD
+    ACTION_SET_USER_INFO,
 } from '../actions/userActions'
 export default {
-    username(state = '', action) {
+    userInfo(state = {}, action) {
         const {type, payload} = action;
         switch (type) {
-            case ACTION_SET_USERNAME:
+            case ACTION_SET_USER_INFO:
                 return payload;
             default:
                 return state
         }
     },
-    password(state = '', action) {
-        const {type, payload} = action;
-        switch (type) {
-            case ACTION_SET_PASSWORD:
-                return payload;
-            default:
-                return state
-        }
-    },
-
 }

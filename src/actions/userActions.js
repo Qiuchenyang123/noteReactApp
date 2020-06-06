@@ -1,25 +1,13 @@
 import axios from '../api/index'
-export const ACTION_SET_USERNAME = 'SET_USERNAME';
-export const ACTION_SET_PASSWORD = 'SET_PASSWORD';
+export const ACTION_SET_USER_INFO = 'SET_USER_INFO';
 export const ACTION_USER_LOGIN = 'USER_LOGIN';
 export const ACTION_ = 'USER_LOGIN';
 
-export function setUserName(username) {
+export function setUserInfo(userInfo) {
     return {
-        type: ACTION_SET_USERNAME,
-        payload: username
+        type: ACTION_SET_USER_INFO,
+        payload: userInfo
     }
-}
-
-export function setUserPassword(password) {
-    return {
-        type: ACTION_SET_PASSWORD,
-        payload: password
-    }
-}
-
-export function userLogin() {
-    axios.get()
 }
 
 export function fetchVerificationSvg() {
@@ -27,6 +15,9 @@ export function fetchVerificationSvg() {
 }
 
 export function userRegister(params) {
-    console.log(30, params);
     return axios.post('/user/register', params)
+}
+
+export function userLogin(params) {
+    return axios.post('/user/login', params)
 }
